@@ -6,17 +6,87 @@ formatter.feature({
   "id": "get-weather-by-details",
   "keyword": "Feature"
 });
-formatter.scenario({
+formatter.scenarioOutline({
   "line": 3,
-  "name": "User calls web service to get weather details by city name, country id of London",
+  "name": "User calls web service to get weather details by city name, country",
   "description": "",
-  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country-id-of-london",
-  "type": "scenario",
-  "keyword": "Scenario"
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
 });
 formatter.step({
   "line": 4,
-  "name": "user enters city with a name London,UK",
+  "name": "user enters city with a name \"\u003ccityname\u003e\"",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 5,
+  "name": "a user retrieves the weather",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 6,
+  "name": "the status code is \u003ccode\u003e",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 7,
+  "name": "has correct temp \"\u003ctemperature\u003e\" hum \"\u003chumidity\u003e\"",
+  "keyword": "And "
+});
+formatter.examples({
+  "line": 9,
+  "name": "",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country;",
+  "rows": [
+    {
+      "cells": [
+        "cityname",
+        "code",
+        "temperature",
+        "humidity"
+      ],
+      "line": 10,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country;;1"
+    },
+    {
+      "cells": [
+        "London,UK",
+        "200",
+        "280.32",
+        "81"
+      ],
+      "line": 11,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country;;2"
+    },
+    {
+      "cells": [
+        "Delhi,IND",
+        "200",
+        "98",
+        "90"
+      ],
+      "line": 12,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country;;3"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "User calls web service to get weather details by city name, country",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline"
+});
+formatter.step({
+  "line": 4,
+  "name": "user enters city with a name \"London,UK\"",
+  "matchedColumns": [
+    0
+  ],
   "keyword": "Given "
 });
 formatter.step({
@@ -27,52 +97,38 @@ formatter.step({
 formatter.step({
   "line": 6,
   "name": "the status code is 200",
+  "matchedColumns": [
+    1
+  ],
   "keyword": "Then "
 });
 formatter.step({
   "line": 7,
-  "name": "response includes the following",
-  "rows": [
-    {
-      "cells": [
-        "cod",
-        "200"
-      ],
-      "line": 8
-    },
-    {
-      "cells": [
-        "name",
-        "London"
-      ],
-      "line": 9
-    }
+  "name": "has correct temp \"280.32\" hum \"81\"",
+  "matchedColumns": [
+    2,
+    3
   ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 10,
-  "name": "has all weather parameters",
   "keyword": "And "
 });
 formatter.match({
   "arguments": [
     {
-      "val": "London,UK",
+      "val": "\"London,UK\"",
       "offset": 29
     }
   ],
-  "location": "WeatherStepDefinitions.a_city_exists_with_name(String)"
+  "location": "WeatherStepDefinitions.a_city_with_name(String)"
 });
 formatter.result({
-  "duration": 4709916763,
+  "duration": 36027116295,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.a_user_retrieves_the_book_by_isbn()"
+  "location": "WeatherStepDefinitions.a_user_retrieves_the_weather()"
 });
 formatter.result({
-  "duration": 4849884273,
+  "duration": 46280447655,
   "status": "passed"
 });
 formatter.match({
@@ -85,247 +141,357 @@ formatter.match({
   "location": "WeatherStepDefinitions.verify_status_code(int)"
 });
 formatter.result({
-  "duration": 2899100025,
+  "duration": 3482475566,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.response_equals(String,String\u003e)"
+  "arguments": [
+    {
+      "val": "280.32",
+      "offset": 18
+    },
+    {
+      "val": "81",
+      "offset": 31
+    }
+  ],
+  "location": "WeatherStepDefinitions.verify_temperature_humidity(String,String)"
 });
 formatter.result({
-  "duration": 2523934746,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WeatherStepDefinitions.response_contains_all_parameters()"
-});
-formatter.result({
-  "duration": 155226432,
+  "duration": 36165984504,
   "status": "passed"
 });
 formatter.scenario({
   "line": 12,
-  "name": "User calls web service to get weather details by city name, country id for Delhi",
+  "name": "User calls web service to get weather details by city name, country",
   "description": "",
-  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country-id-for-delhi",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country;;3",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 13,
-  "name": "user enters city with a name London,UK",
+  "line": 4,
+  "name": "user enters city with a name \"Delhi,IND\"",
+  "matchedColumns": [
+    0
+  ],
   "keyword": "Given "
 });
 formatter.step({
-  "line": 14,
+  "line": 5,
   "name": "a user retrieves the weather",
   "keyword": "When "
+});
+formatter.step({
+  "line": 6,
+  "name": "the status code is 200",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 7,
+  "name": "has correct temp \"98\" hum \"90\"",
+  "matchedColumns": [
+    2,
+    3
+  ],
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "\"Delhi,IND\"",
+      "offset": 29
+    }
+  ],
+  "location": "WeatherStepDefinitions.a_city_with_name(String)"
+});
+formatter.result({
+  "duration": 1007111,
+  "status": "passed"
+});
+formatter.match({
+  "location": "WeatherStepDefinitions.a_user_retrieves_the_weather()"
+});
+formatter.result({
+  "duration": 4796849041,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "200",
+      "offset": 19
+    }
+  ],
+  "location": "WeatherStepDefinitions.verify_status_code(int)"
+});
+formatter.result({
+  "duration": 1831517,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "98",
+      "offset": 18
+    },
+    {
+      "val": "90",
+      "offset": 27
+    }
+  ],
+  "location": "WeatherStepDefinitions.verify_temperature_humidity(String,String)"
+});
+formatter.result({
+  "duration": 231132727,
+  "error_message": "java.lang.AssertionError: 1 expectation failed.\nJSON path main.temp doesn\u0027t match.\nExpected: \u003c98.0F\u003e\n  Actual: 280.32\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:60)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:235)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.content(ResponseSpecificationImpl.groovy:251)\r\n\tat io.restassured.specification.ResponseSpecification$content$1.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:234)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:268)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.verify_temperature_humidity(WeatherStepDefinitions.java:48)\r\n\tat ✽.And has correct temp \"98\" hum \"90\"(weather.feature:7)\r\n",
+  "status": "failed"
+});
+formatter.scenarioOutline({
+  "line": 14,
+  "name": "User calls web service to get weather details of invalid country",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-of-invalid-country",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
 });
 formatter.step({
   "line": 15,
-  "name": "the status code is 200",
-  "keyword": "Then "
+  "name": "user enters city with a name \"\u003ccityname\u003e\"",
+  "keyword": "Given "
 });
 formatter.step({
   "line": 16,
-  "name": "response includes the following",
+  "name": "a user retrieves the weather",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 17,
+  "name": "the status code is \u003ccode\u003e",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 19,
+  "name": "",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-of-invalid-country;",
   "rows": [
     {
       "cells": [
-        "cod",
-        "200"
+        "cityname",
+        "code"
       ],
-      "line": 17
+      "line": 20,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-of-invalid-country;;1"
     },
     {
       "cells": [
-        "name",
-        "Delhi"
+        "ABCDEF,XYZ",
+        "401"
       ],
-      "line": 18
+      "line": 21,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-of-invalid-country;;2"
     }
   ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 19,
-  "name": "has all weather parameters",
-  "keyword": "And "
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "London,UK",
-      "offset": 29
-    }
-  ],
-  "location": "WeatherStepDefinitions.a_city_exists_with_name(String)"
-});
-formatter.result({
-  "duration": 878044,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WeatherStepDefinitions.a_user_retrieves_the_book_by_isbn()"
-});
-formatter.result({
-  "duration": 163053685,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "200",
-      "offset": 19
-    }
-  ],
-  "location": "WeatherStepDefinitions.verify_status_code(int)"
-});
-formatter.result({
-  "duration": 804571,
-  "status": "passed"
-});
-formatter.match({
-  "location": "WeatherStepDefinitions.response_equals(String,String\u003e)"
-});
-formatter.result({
-  "duration": 268866294,
-  "error_message": "java.lang.AssertionError: 1 expectation failed.\nJSON path name doesn\u0027t match.\nExpected: Delhi\n  Actual: London\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:60)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:235)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.content(ResponseSpecificationImpl.groovy:251)\r\n\tat io.restassured.specification.ResponseSpecification$content$1.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:234)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:268)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.response_equals(WeatherStepDefinitions.java:58)\r\n\tat ✽.And response includes the following(weather.feature:16)\r\n",
-  "status": "failed"
-});
-formatter.match({
-  "location": "WeatherStepDefinitions.response_contains_all_parameters()"
-});
-formatter.result({
-  "status": "skipped"
+  "keyword": "Examples"
 });
 formatter.scenario({
   "line": 21,
-  "name": "User calls web service to get weather details by city name, country id for Delhi",
+  "name": "User calls web service to get weather details of invalid country",
   "description": "",
-  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-city-name,-country-id-for-delhi",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-of-invalid-country;;2",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 22,
-  "name": "user enters city with a name ABCDEF,NGSD",
+  "line": 15,
+  "name": "user enters city with a name \"ABCDEF,XYZ\"",
+  "matchedColumns": [
+    0
+  ],
   "keyword": "Given "
 });
 formatter.step({
-  "line": 23,
+  "line": 16,
   "name": "a user retrieves the weather",
   "keyword": "When "
 });
 formatter.step({
-  "line": 24,
-  "name": "the status code is 404",
+  "line": 17,
+  "name": "the status code is 401",
+  "matchedColumns": [
+    1
+  ],
   "keyword": "Then "
 });
 formatter.match({
   "arguments": [
     {
-      "val": "ABCDEF,NGSD",
+      "val": "\"ABCDEF,XYZ\"",
       "offset": 29
     }
   ],
-  "location": "WeatherStepDefinitions.a_city_exists_with_name(String)"
+  "location": "WeatherStepDefinitions.a_city_with_name(String)"
 });
 formatter.result({
-  "duration": 911848,
+  "duration": 901511,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.a_user_retrieves_the_book_by_isbn()"
+  "location": "WeatherStepDefinitions.a_user_retrieves_the_weather()"
 });
 formatter.result({
-  "duration": 64114014,
+  "duration": 54380655,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "404",
+      "val": "401",
       "offset": 19
     }
   ],
   "location": "WeatherStepDefinitions.verify_status_code(int)"
 });
 formatter.result({
-  "duration": 1555225,
-  "error_message": "java.lang.AssertionError: 1 expectation failed.\nExpected status code \u003c404\u003e doesn\u0027t match actual status code \u003c200\u003e.\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:120)\r\n\tat io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:128)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:117)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.verify_status_code(WeatherStepDefinitions.java:46)\r\n\tat ✽.Then the status code is 404(weather.feature:24)\r\n",
+  "duration": 2310349,
+  "error_message": "java.lang.AssertionError: 1 expectation failed.\nExpected status code \u003c401\u003e doesn\u0027t match actual status code \u003c200\u003e.\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:120)\r\n\tat io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:128)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:117)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.verify_status_code(WeatherStepDefinitions.java:42)\r\n\tat ✽.Then the status code is 401(weather.feature:17)\r\n",
   "status": "failed"
 });
-formatter.scenario({
-  "line": 27,
-  "name": "User calls web service to get weather details by latitude,longitude",
+formatter.scenarioOutline({
+  "line": 23,
+  "name": "User calls web service to get weather details by latitude and longitude",
   "description": "",
-  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude,longitude",
-  "type": "scenario",
-  "keyword": "Scenario"
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 28,
-  "name": "user enters city with a latitude 35 and longitude 139",
+  "line": 24,
+  "name": "user enters city with a latitude \"\u003clatitude\u003e\" and longitude \"\u003clongitude\u003e\"",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 29,
+  "line": 25,
   "name": "a user retrieves the weather",
   "keyword": "When "
 });
 formatter.step({
-  "line": 30,
-  "name": "the status code is 200",
+  "line": 26,
+  "name": "the status code is \u003ccode\u003e",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 31,
-  "name": "response includes the following",
+  "line": 27,
+  "name": "has correct temp \"\u003ctemperature\u003e\" hum \"\u003chumidity\u003e\"",
+  "keyword": "And "
+});
+formatter.examples({
+  "line": 29,
+  "name": "",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude;",
   "rows": [
     {
       "cells": [
-        "coord.lon",
-        "139.01"
+        "latitude",
+        "longitude",
+        "code",
+        "temperature",
+        "humidity"
       ],
-      "line": 32
+      "line": 30,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude;;1"
     },
     {
       "cells": [
-        "coord.lat",
-        "35.02"
+        "35.02",
+        "139.01",
+        "200",
+        "285.514",
+        "100"
       ],
-      "line": 33
+      "line": 31,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude;;2"
+    },
+    {
+      "cells": [
+        "56",
+        "119",
+        "200",
+        "98",
+        "90"
+      ],
+      "line": 32,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude;;3"
     }
   ],
-  "keyword": "And "
+  "keyword": "Examples"
+});
+formatter.scenario({
+  "line": 31,
+  "name": "User calls web service to get weather details by latitude and longitude",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 34,
-  "name": "has all weather parameters",
+  "line": 24,
+  "name": "user enters city with a latitude \"35.02\" and longitude \"139.01\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 25,
+  "name": "a user retrieves the weather",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 26,
+  "name": "the status code is 200",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 27,
+  "name": "has correct temp \"285.514\" hum \"100\"",
+  "matchedColumns": [
+    3,
+    4
+  ],
   "keyword": "And "
 });
 formatter.match({
   "arguments": [
     {
-      "val": "35",
-      "offset": 33
+      "val": "35.02",
+      "offset": 34
     },
     {
-      "val": "139",
-      "offset": 50
+      "val": "139.01",
+      "offset": 56
     }
   ],
-  "location": "WeatherStepDefinitions.a_city_exists_with_name(Integer,Integer)"
+  "location": "WeatherStepDefinitions.a_city_latitude_longitude(String,String)"
 });
 formatter.result({
-  "duration": 2670451,
+  "duration": 837257,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.a_user_retrieves_the_book_by_isbn()"
+  "location": "WeatherStepDefinitions.a_user_retrieves_the_weather()"
 });
 formatter.result({
-  "duration": 72776568,
+  "duration": 52314470,
   "status": "passed"
 });
 formatter.match({
@@ -338,94 +504,87 @@ formatter.match({
   "location": "WeatherStepDefinitions.verify_status_code(int)"
 });
 formatter.result({
-  "duration": 779150,
+  "duration": 1461359,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.response_equals(String,String\u003e)"
+  "arguments": [
+    {
+      "val": "285.514",
+      "offset": 18
+    },
+    {
+      "val": "100",
+      "offset": 32
+    }
+  ],
+  "location": "WeatherStepDefinitions.verify_temperature_humidity(String,String)"
 });
 formatter.result({
-  "duration": 116065869,
-  "error_message": "java.lang.AssertionError: 1 expectation failed.\nJSON path coord.lon doesn\u0027t match.\nExpected: 139.01\n  Actual: 139.01\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.content(ResponseSpecificationImpl.groovy:251)\r\n\tat io.restassured.specification.ResponseSpecification$content$1.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:234)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:268)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.response_equals(WeatherStepDefinitions.java:58)\r\n\tat ✽.And response includes the following(weather.feature:31)\r\n",
-  "status": "failed"
-});
-formatter.match({
-  "location": "WeatherStepDefinitions.response_contains_all_parameters()"
-});
-formatter.result({
-  "status": "skipped"
+  "duration": 667994396,
+  "status": "passed"
 });
 formatter.scenario({
-  "line": 36,
-  "name": "User calls web service to get weather details by latitude,longitude for different place",
+  "line": 32,
+  "name": "User calls web service to get weather details by latitude and longitude",
   "description": "",
-  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude,longitude-for-different-place",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-latitude-and-longitude;;3",
   "type": "scenario",
-  "keyword": "Scenario"
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 37,
-  "name": "user enters city with a latitude 56 and longitude 115",
+  "line": 24,
+  "name": "user enters city with a latitude \"56\" and longitude \"119\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
   "keyword": "Given "
 });
 formatter.step({
-  "line": 38,
+  "line": 25,
   "name": "a user retrieves the weather",
   "keyword": "When "
 });
 formatter.step({
-  "line": 39,
+  "line": 26,
   "name": "the status code is 200",
+  "matchedColumns": [
+    2
+  ],
   "keyword": "Then "
 });
 formatter.step({
-  "line": 40,
-  "name": "response includes the following",
-  "rows": [
-    {
-      "cells": [
-        "coord.lon",
-        "115"
-      ],
-      "line": 41
-    },
-    {
-      "cells": [
-        "coord.lat",
-        "56"
-      ],
-      "line": 42
-    }
+  "line": 27,
+  "name": "has correct temp \"98\" hum \"90\"",
+  "matchedColumns": [
+    3,
+    4
   ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 43,
-  "name": "has all weather parameters",
   "keyword": "And "
 });
 formatter.match({
   "arguments": [
     {
       "val": "56",
-      "offset": 33
+      "offset": 34
     },
     {
-      "val": "115",
-      "offset": 50
+      "val": "119",
+      "offset": 53
     }
   ],
-  "location": "WeatherStepDefinitions.a_city_exists_with_name(Integer,Integer)"
+  "location": "WeatherStepDefinitions.a_city_latitude_longitude(String,String)"
 });
 formatter.result({
-  "duration": 1970921,
+  "duration": 1830401,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.a_user_retrieves_the_book_by_isbn()"
+  "location": "WeatherStepDefinitions.a_user_retrieves_the_weather()"
 });
 formatter.result({
-  "duration": 27159876,
+  "duration": 56773137,
   "status": "passed"
 });
 formatter.match({
@@ -438,82 +597,143 @@ formatter.match({
   "location": "WeatherStepDefinitions.verify_status_code(int)"
 });
 formatter.result({
-  "duration": 698971,
+  "duration": 4573765,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.response_equals(String,String\u003e)"
+  "arguments": [
+    {
+      "val": "98",
+      "offset": 18
+    },
+    {
+      "val": "90",
+      "offset": 27
+    }
+  ],
+  "location": "WeatherStepDefinitions.verify_temperature_humidity(String,String)"
 });
 formatter.result({
-  "duration": 22327140,
-  "error_message": "java.lang.AssertionError: 1 expectation failed.\nJSON path coord.lon doesn\u0027t match.\nExpected: \u003c115\u003e\n  Actual: 139.01\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.content(ResponseSpecificationImpl.groovy:251)\r\n\tat io.restassured.specification.ResponseSpecification$content$1.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:234)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:268)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.response_equals(WeatherStepDefinitions.java:56)\r\n\tat ✽.And response includes the following(weather.feature:40)\r\n",
+  "duration": 26668194,
+  "error_message": "java.lang.AssertionError: 1 expectation failed.\nJSON path main.temp doesn\u0027t match.\nExpected: \u003c98.0F\u003e\n  Actual: 285.514\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.content(ResponseSpecificationImpl.groovy:251)\r\n\tat io.restassured.specification.ResponseSpecification$content$1.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:234)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:268)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.verify_temperature_humidity(WeatherStepDefinitions.java:48)\r\n\tat ✽.And has correct temp \"98\" hum \"90\"(weather.feature:27)\r\n",
   "status": "failed"
 });
-formatter.match({
-  "location": "WeatherStepDefinitions.response_contains_all_parameters()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.scenario({
-  "line": 45,
-  "name": "User calls web service to get weather details using incorrect latitude longitude",
+formatter.scenarioOutline({
+  "line": 34,
+  "name": "User calls web service to get weather details by incorrect latitude and longitude",
   "description": "",
-  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-using-incorrect-latitude-longitude",
-  "type": "scenario",
-  "keyword": "Scenario"
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-incorrect-latitude-and-longitude",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 46,
-  "name": "user enters city with a latitude 400 and longitude 400",
+  "line": 35,
+  "name": "user enters city with a latitude \"\u003clatitude\u003e\" and longitude \"\u003clongitude\u003e\"",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 47,
+  "line": 36,
   "name": "a user retrieves the weather",
   "keyword": "When "
 });
 formatter.step({
-  "line": 48,
-  "name": "the status code is 404",
+  "line": 37,
+  "name": "the status code is \u003ccode\u003e",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 39,
+  "name": "",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-incorrect-latitude-and-longitude;",
+  "rows": [
+    {
+      "cells": [
+        "latitude",
+        "longitude",
+        "code"
+      ],
+      "line": 40,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-incorrect-latitude-and-longitude;;1"
+    },
+    {
+      "cells": [
+        "400",
+        "400",
+        "401"
+      ],
+      "line": 41,
+      "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-incorrect-latitude-and-longitude;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.scenario({
+  "line": 41,
+  "name": "User calls web service to get weather details by incorrect latitude and longitude",
+  "description": "",
+  "id": "get-weather-by-details;user-calls-web-service-to-get-weather-details-by-incorrect-latitude-and-longitude;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline"
+});
+formatter.step({
+  "line": 35,
+  "name": "user enters city with a latitude \"400\" and longitude \"400\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 36,
+  "name": "a user retrieves the weather",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 37,
+  "name": "the status code is 401",
+  "matchedColumns": [
+    2
+  ],
   "keyword": "Then "
 });
 formatter.match({
   "arguments": [
     {
       "val": "400",
-      "offset": 33
+      "offset": 34
     },
     {
       "val": "400",
-      "offset": 51
+      "offset": 54
     }
   ],
-  "location": "WeatherStepDefinitions.a_city_exists_with_name(Integer,Integer)"
+  "location": "WeatherStepDefinitions.a_city_latitude_longitude(String,String)"
 });
 formatter.result({
-  "duration": 1568077,
+  "duration": 1276699,
   "status": "passed"
 });
 formatter.match({
-  "location": "WeatherStepDefinitions.a_user_retrieves_the_book_by_isbn()"
+  "location": "WeatherStepDefinitions.a_user_retrieves_the_weather()"
 });
 formatter.result({
-  "duration": 30732677,
+  "duration": 57178496,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "404",
+      "val": "401",
       "offset": 19
     }
   ],
   "location": "WeatherStepDefinitions.verify_status_code(int)"
 });
 formatter.result({
-  "duration": 1304077,
-  "error_message": "java.lang.AssertionError: 1 expectation failed.\nExpected status code \u003c404\u003e doesn\u0027t match actual status code \u003c200\u003e.\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:120)\r\n\tat io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:128)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:117)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.verify_status_code(WeatherStepDefinitions.java:46)\r\n\tat ✽.Then the status code is 404(weather.feature:48)\r\n",
+  "duration": 1974273,
+  "error_message": "java.lang.AssertionError: 1 expectation failed.\nExpected status code \u003c401\u003e doesn\u0027t match actual status code \u003c200\u003e.\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:247)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:451)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:613)\r\n\tat sun.reflect.GeneratedMethodAccessor41.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:120)\r\n\tat io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:128)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:117)\r\n\tat org.de.adidas.step.WeatherStepDefinitions.verify_status_code(WeatherStepDefinitions.java:42)\r\n\tat ✽.Then the status code is 401(weather.feature:37)\r\n",
   "status": "failed"
 });
 });
